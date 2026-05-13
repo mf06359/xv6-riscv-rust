@@ -11,8 +11,8 @@ https://nix.dev/install-nix
 ## 実行方法
 
 ```sh
-git clone <your-repo-url>
-cd <repo-name>
+git clone git@github.com:mf06359/xv6-riscv-rust.git
+cd xv6-riscv-rust
 
 nix develop
 make qemu
