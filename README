@@ -1,0 +1,50 @@
+# xv6-rust
+
+Rustで実装したxv6です。
+
+## Nixのインストール
+
+Linux / macOS:
+
+```sh
+curl -L https://nixos.org/nix/install | sh -s -- --daemon
+```
+
+インストール確認:
+
+```sh
+nix --version
+```
+
+詳しく: https://nix.dev/install-nix
+
+---
+
+## 実行方法
+
+```sh
+git clone <your-repo-url>
+cd <repo-name>
+
+nix develop      # 初回のみ依存を取得し、以降は再ダウンロードされない
+make qemu
+```
+
+xv6 が QEMU 上で起動します。
+
+`nix develop` 起動時に shellHook が `.nix/dev-profile` という GC ルートを自動的に
+登録するため、devShell の依存（rustup, qemu, riscv の gcc/binutils 等）は Nix の
+ガベージコレクションから保護されます。2 回目以降の `nix develop` ではパッケージの
+再ダウンロードは発生しません。
+
+> Note: `.nix/` は GC ルートのシンボリックリンクが置かれるディレクトリです。git で
+> 追跡されません（`.gitignore` 済み）。リポジトリを破棄しても `/nix/store` 内の
+> 実体は残るので、必要に応じて `nix store gc` で掃除してください。
+
+---
+
+## 終了方法
+
+```txt
+Ctrl-a x
+```

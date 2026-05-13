@@ -1,0 +1,45 @@
+[workspace]
+resolver = "2"
+members = [
+    "kernel",
+    "mkfs",
+    "user/cat",
+    "user/dorphan",
+    "user/echo",
+    "user/forktest",
+    "user/forphan",
+    "user/grep",
+    "user/grind",
+    "user/init",
+    "user/isty",
+    "user/kill",
+    "user/life",
+    "user/ln",
+    "user/logstress",
+    "user/ls",
+    "user/mkdir",
+    "user/primes",
+    "user/rm",
+    "user/sh",
+    "user/stressfs",
+    "user/usertests",
+    "user/wc",
+    "user/zombie",
+]
+
+[workspace.package]
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[profile.dev]
+opt-level = 2
+panic = "abort"
+codegen-units = 1
+
+[profile.release]
+opt-level = 2
+panic = "abort"
+codegen-units = 1
+debug = false
+strip = false

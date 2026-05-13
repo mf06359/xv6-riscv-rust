@@ -1,0 +1,12 @@
+[package]
+name = "mkfs"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+# Host-only tool; the Makefile omits `--target` when building this package
+# so it uses the host toolchain and libstd. The workspace profile applies
+# (panic=abort, opt-level=2), which is harmless for a short-lived CLI.
+[[bin]]
+name = "mkfs"
+path = "mkfs.rs"

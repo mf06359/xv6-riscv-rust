@@ -1,0 +1,13 @@
+[package]
+name = "user-primes"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+# Each user binary is its own self-contained rlib that includes the user
+# runtime sources (ulib/usys/printf/umalloc) as inner modules via #[path].
+# Cargo's emit=obj support is used by the Makefile to produce a single .o
+# per binary, which then gets linked with user.ld.
+[lib]
+name = "user_primes"
+path = "cargo_root.rs"

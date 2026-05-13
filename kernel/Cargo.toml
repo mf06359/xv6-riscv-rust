@@ -1,0 +1,17 @@
+[package]
+name = "kernel"
+version.workspace = true
+edition.workspace = true
+publish.workspace = true
+
+# Build the kernel as a staticlib so the Makefile can link it together with
+# the assembly objects (entry.S / swtch.S / kernelvec.S / trampoline.S) and
+# the kernel.ld linker script.
+[lib]
+name = "rust_xv6_kernel"
+path = "rust_kernel.rs"
+# Default crate-type = ["lib"] (rlib). The Makefile uses
+# `cargo rustc -- --emit=obj` to extract a single object file that gets
+# linked together with the assembly objects via the kernel.ld script.
+# An rlib does not require a `#[panic_handler]` — that's the job of the
+# final binary, which here is the linker (using rust_printf::panic).
