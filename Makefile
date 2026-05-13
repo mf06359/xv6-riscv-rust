@@ -151,8 +151,8 @@ UPROGS=\
 	$U/_life\
 	$U/_primes\
 
-fs.img: mkfs/mkfs README $(UPROGS)
-	mkfs/mkfs fs.img README $(UPROGS)
+fs.img: mkfs/mkfs MEMO $(UPROGS)
+	mkfs/mkfs fs.img MEMO $(UPROGS)
 
 clean:
 	$(CARGO) clean 2>/dev/null || true
