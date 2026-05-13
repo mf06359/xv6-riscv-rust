@@ -10,8 +10,6 @@ coverage/
 
 criterion/
 
-# Miri
-.miri/
 
 *.o
 *.d
@@ -46,11 +44,11 @@ qemu.log
 *.dis
 
 
-# Vim / Neovim
 *.swp
 *.swo
 *~
 
+.nix
 
 # macOS
 .DS_Store
