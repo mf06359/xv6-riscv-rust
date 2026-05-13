@@ -10,7 +10,7 @@ coverage/
 
 criterion/
 
-.rlib
+*.rlib
 
 *.o
 *.d
